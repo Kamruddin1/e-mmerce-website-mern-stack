@@ -6,10 +6,15 @@ import {
   incrementAsync,
   selectCount,
 } from './AuthSlice';
-
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
- 
+  const navigate= useNavigate();
+
+
+  const handleClickLogin = ()=>{
+    navigate('/login')
+  }
   // const dispatch = useDispatch();
 
 
@@ -89,9 +94,9 @@ export default function SignUp() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Already a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            <button onClick={handleClickLogin} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Login 
-            </a>
+            </button>
           </p>
         </div>
       </div>

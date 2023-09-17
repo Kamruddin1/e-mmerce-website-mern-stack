@@ -2,6 +2,8 @@ import React, { Children } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon,  ShoppingBagIcon, ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
+
 
 const user = {
   name: "Ansari",
@@ -25,6 +27,13 @@ function classNames(...classes) {
 }
 
 const Navbar = ({children}) => {
+  
+const navigate = useNavigate();
+
+const hangleGoToCart = () =>{
+   navigate('/cart')
+}
+
   return (
     <>
       <div className="min-h-full">
@@ -64,6 +73,7 @@ const Navbar = ({children}) => {
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
                       <button
+                      onClick={hangleGoToCart}
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
@@ -71,7 +81,7 @@ const Navbar = ({children}) => {
                         <span className="sr-only">View notifications</span>
                         <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                       </button>
-                      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mb-7 -ml-3">3</span>
+                      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mb-7 -ml-3 bg-black-500">3</span>
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -175,6 +185,7 @@ const Navbar = ({children}) => {
                     </div>
                     <button
                       type="button"
+                      onClick={hangleGoToCart}
                       className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <span className="absolute -inset-1.5" />
@@ -202,10 +213,13 @@ const Navbar = ({children}) => {
         </Disclosure>
 
         <header className="bg-white shadow ">
+        
           <div className="mx-auto  max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          
             <h1 className="text-3xl flex justify-start font-bold tracking-tight text-gray-900">
               E-commerce
             </h1>
+       
           </div>
         </header>
         <main>

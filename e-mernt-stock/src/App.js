@@ -1,19 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import Home from './Page/Home';
-import ProductList from './features/product-list/PoductList';
-import Login from './features/auth/Login';
-import SignUp from './features/auth/SignUp';
+import "./App.css";
+import Home from "./Page/Home";
+import ProductList from "./features/product-list/PoductList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./Page/LoginPage";
+import SignUpPage from "./Page/SignUpPage";
+import CartPage from "./Page/CartPage";
+import Checkout from "./Page/Checkout";
+
+
 
 function App() {
   return (
-    <div className="App">
-     <Home></Home>
-     {/* <ProductList></ProductList> */}
-     <Login></Login>
-     <SignUp></SignUp>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home></Home>} />
+        <Route path="/login" element={<LoginPage></LoginPage>}/>
+        <Route path="/signup" element={<SignUpPage></SignUpPage>}></Route>
+        <Route path="/cart" element={<CartPage></CartPage>}></Route>
+        <Route path="checkout" element={<Checkout></Checkout>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
